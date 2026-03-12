@@ -6,7 +6,7 @@ class Businessman:
         self.__ownerships = []
 
     def get_balance(self) -> int:
-        pass
+        return self.__balance
 
     def add_ownership(self, ownership):
         pass

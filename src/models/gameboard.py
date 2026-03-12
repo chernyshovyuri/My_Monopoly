@@ -78,19 +78,31 @@ class Ownership(Cell, ABC):
     def calculate_rent(self) -> int:  raise NotImplemented()
 
     def get_price(self) -> int:
-        pass
+        return self._price
 
-    def set_owner(self, owner: Businessman) -> None:
-        pass
 
-    def has_owner(self) -> bool:
-        pass
+    def set_owner(self, owner: Businessman) -> bool:
+        if not isinstance(owner, Businessman): raise TypeError()
+
+        if not owner:  return False
+
+        self._owner = owner
+
+        return True
+
+
+    def has_owner(self) -> Businessman | None:
+        return  self._owner
+
 
     def identify_owner(self, owner: Businessman) -> bool:
-        pass
+        if not isinstance(owner, Businessman): raise TypeError()
+
+        return self._owner == owner
+
 
     def unset_owner(self) -> None:
-        pass
+        self._owner = None
 
 
 class NeighborhoodTypes:
