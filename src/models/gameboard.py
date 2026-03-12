@@ -109,17 +109,24 @@ class NeighborhoodTypes:
     RED = 0
     BLUE = 1
     GREEN = 2
+    YELLOW = 3
+    PINK = 4
+    BROWN = 5
+    LIGHT_BLUE = 6
 
 
 class Street(Ownership):
 
-    def __init__(self, x: int, price: int, rent: int, neighborhood: NeighborhoodTypes):
+    def __init__(self, x: int, price: int, rent: int, neighborhood: NeighborhoodTypes, ):
         super().__init__(x, price, rent)
 
-        self.__neighborhood =  neighborhood  # район
+        self.__neighborhood =  neighborhood
 
-    def land(self, businessman: Businessman):  # встать
-        pass
+
+    def land(self, businessman: Businessman) -> None:
+        if not isinstance(businessman, Businessman): raise TypeError()
+
+        self._x = businessman
 
     def calculate_price(self) -> int:
         pass
@@ -128,7 +135,11 @@ class Street(Ownership):
         pass
 
     def build_home(self) -> None:  # построить дом
-        pass
+
+
+        
+
+
 
     def build_hotel(self) -> None:  # построить отель
         pass
